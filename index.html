@@ -1,20 +1,98 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alexandre</title>
+<meta charset="UTF-8">
+<title>Minha IA Simples</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 350px;
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px black;
+}
+
+#chat {
+    height: 250px;
+    overflow-y: auto;
+    background: #020617;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+input {
+    width: 70%;
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+}
+
+button {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    background: #22c55e;
+    cursor: pointer;
+}
+</style>
 </head>
+
 <body>
-    <header>
-    so pagina
-    </header>
-    <main>
-    <button>Botão 1</button>
-    <button>Botão 2</button>
-    </main>
-    <footer>
-    Londrina - colégio Benedita - 2026
-    </footer>
+
+<div class="container">
+    <h2>Minha IA 🤖</h2>
+
+    <div id="chat"></div>
+
+    <input type="text" id="pergunta" placeholder="Digite algo...">
+    <button onclick="responder()">Enviar</button>
+</div>
+
+<script>
+
+function responder() {
+
+    let pergunta = document.getElementById("pergunta").value.toLowerCase();
+    let chat = document.getElementById("chat");
+
+    let resposta = "Não entendi.";
+
+    if (pergunta.includes("oi")) {
+        resposta = "Olá!";
+    }
+
+    else if (pergunta.includes("tudo bem")) {
+        resposta = "Estou funcionando normalmente.";
+    }
+
+    else if (pergunta.includes("seu nome")) {
+        resposta = "Sou uma IA simples feita em HTML.";
+    }
+
+    else if (pergunta.includes("minecraft")) {
+        resposta = "Minecraft é um jogo muito popular!";
+    }
+
+    chat.innerHTML += "<p><b>Você:</b> " + pergunta + "</p>";
+    chat.innerHTML += "<p><b>IA:</b> " + resposta + "</p>";
+
+    document.getElementById("pergunta").value = "";
+
+}
+
+</script>
+
 </body>
 </html>
